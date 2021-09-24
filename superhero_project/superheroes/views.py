@@ -55,3 +55,6 @@ def delete(request, hero_id):
     single_hero = Superhero.objects.get(pk=hero_id)
     single_hero.delete()
     return HttpResponseRedirect(reverse('superheroes:index'))
+
+def back_to_index(request):
+    return HttpResponseRedirect(reverse('superheroes:index'))
