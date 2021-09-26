@@ -5,21 +5,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <title>Create New Hero</title>
+    <title>Create New Superhero</title>
 </head>
 
 <body>
-    <form action="{% url 'superheroes:create' %}" method='post'>
-        {% csrf_token %}
-        Name: <input type='text' name='name' id='name'><br />
-        Alter Ego: <input type='text' name='alter_ego' id='alter_ego'><br />
-        Primary Ability: <input type='text' name='primary' id='primary'><br />
-        Secondary Ability: <input type='text' name='secondary' id='secondary'><br />
-        Catchphrase: <input type='text' name='catchphrase' id='catchphrase'><br />
-        <input type='submit' value='Add!'>
-    </form>
+    <div class='container-md'>
+        <h1>Create New Superhero</h1>
+        <br>
+        <h5>Fill in the details and click Add!</h5>
+        <form class='card p-1 bg-light' action="{% url 'superheroes:create' %}" method='post'>
+            {% csrf_token %}
+            <div class='form-floating'>
+                <input type='text' class='form-control' name='name' id='name'>
+                <label for='name'>Name</label>
+            </div>
+            <div class='form-floating'>
+                <input type='text' class='form-control' name='alter_ego' id='alter_ego'>
+                <label for='alter_ego'>Alter Ego</label>
+            </div>
+            <div class='form-floating'>
+                <input type='text' class='form-control' name='primary' id='primary'>
+                <label for='primary'>Primary Ability</label>
+            </div>
+            <div class='form-floating'>
+                <input type='text' class='form-control' name='secondary' id='secondary'>
+                <label for='secondary'>Secondary Ability</label>
+            </div>
+            <div class='form-floating'>
+                <input type='text' class='form-control' name='catchphrase' id='catchphrase'>
+                <label for='catchphrase'>Catchphrase</label>
+            </div>
+            <div class='mb-1'>
+                <input type='submit' class='btn btn-primary' value='Add!'>
+            </div>
+        </form>
+        <a href="{% url 'superheroes:back_to_index' %}">Back to Home</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
